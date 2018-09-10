@@ -41,9 +41,22 @@ var flipCard = function() {
 	}
 };
 
+var createBoard = function() {
+	for (var i = 0; i < cards.length; i++) {
+    	var cardElement = document.createElement('img');
+    	cardElement.setAttribute('card-id', i);
+		cardElement.setAttribute('src', "images/back.png");
+		cardElement.setAttribute('data-rank', cards[i].rank); 
+		cardElement.setAttribute('data-suit', cards[i].suit);
+		cardElement.setAttribute('data-cardImage', cards[i].cardImage);
+		cardElement.addEventListener('click', flipCard);
+		document.getElementById('game-board').appendChild(cardElement); 	
+	}	
+};
 
+createBoard();
 
-cards.push(flipCard);
+// cards.push(flipCard);
 
-cardsInPlay.push(cards.rank);
+// cardsInPlay.push(cards.rank);
 
